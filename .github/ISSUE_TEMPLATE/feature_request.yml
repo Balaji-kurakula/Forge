@@ -1,0 +1,57 @@
+name: Feature request / implement a stub
+description: Propose new behaviour, or ask for a stubbed component to be built out.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Forge is built in phases. Check [`docs/ROADMAP.md`](../../blob/main/docs/ROADMAP.md)
+        first — the thing you want may already be scheduled, in which case comment there instead.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What can't be done today, and why that matters.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: |
+        Sketch the design. If it touches a layer, say which (L1–L7) and whether it
+        crosses the tenancy wall.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Which phase does this belong to?
+      options:
+        - Phase 1 — real Code Graph / CodeReview on a real repo
+        - Phase 2 — Behavioral graph + OnCall
+        - Phase 3 — Sandbox + Migrator
+        - Phase 4 — Platform & expansion
+        - Not phased / toolchain / docs
+        - Not sure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: invariants
+    attributes:
+      label: Invariant check
+      description: |
+        Two rules are non-negotiable. Confirm your proposal respects them, or explain
+        below why it needs to change one.
+      options:
+        - label: "Only the Executor writes, and only after Verifier ∧ Critic (ADR-0005)."
+        - label: "Per-tenant data stays behind the tenancy wall; only anonymized patterns cross (ADR-0006)."
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

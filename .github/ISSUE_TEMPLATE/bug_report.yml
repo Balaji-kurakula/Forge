@@ -1,0 +1,64 @@
+name: Bug report
+description: Something that is meant to work does not.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: much of `src/` is **intentionally stubbed** and throws `not implemented`.
+        That is by design, not a bug — see the component status matrix in
+        [`docs/progress.md`](../../blob/main/docs/progress.md). Please file those as a
+        *feature request* instead.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you observed, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: The exact commands, starting from a clean clone.
+      placeholder: |
+        pnpm install
+        pnpm test
+        # → tests/policy-engine.test.ts fails with ...
+      render: shell
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Workflows / orchestration (src/workflows, src/activities)
+        - Policy gate / write invariant (src/policy, src/agents)
+        - Substrate (src/substrate)
+        - Indexer / Code Graph (src/indexer, Neo4j)
+        - MCP server (src/mcp)
+        - CLI (pnpm index / pnpm graph / pnpm demo)
+        - Toolchain / CI / Docker
+        - Docs
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Output of `node --version`, `pnpm --version`, and your OS.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / stack trace
+      render: shell

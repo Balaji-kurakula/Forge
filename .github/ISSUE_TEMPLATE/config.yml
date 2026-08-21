@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Architecture documentation
+    url: https://github.com/Balaji-kurakula/forge/blob/main/ARCHITECTURE.md
+    about: Start here for how the system is meant to fit together (L1–L7 + cross-cutting).
+  - name: Roadmap
+    url: https://github.com/Balaji-kurakula/forge/blob/main/docs/ROADMAP.md
+    about: What is built, what is next, and which phase owns it.
+  - name: Report a security issue
+    url: https://github.com/Balaji-kurakula/forge/security/advisories/new
+    about: Please report vulnerabilities privately, not as a public issue.

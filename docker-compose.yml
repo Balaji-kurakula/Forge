@@ -1,0 +1,71 @@
+# Forge local dev substrate stores.
+#   pnpm db:up    # start
+#   pnpm db:down  # stop + wipe volumes
+#
+# The two Postgres-based stores auto-apply their init SQL from infra/init/* on first
+# boot. Neo4j has no native init-on-boot for Cypher — seed it once with:
+#   docker compose exec -T neo4j cypher-shell -u neo4j -p forge-dev-neo4j < infra/init/neo4j/code.cypher
+#
+# Connection strings live in .env.example (copy to .env).
+
+services:
+  # ── Code Graph ──────────────────────────────────────────────────────────────
+  neo4j:
+    image: neo4j:5
+    environment:
+      NEO4J_AUTH: ${NEO4J_AUTH:-neo4j/forge-dev-neo4j}
+    ports:
+      - "7474:7474" # browser
+      - "7687:7687" # bolt
+    volumes:
+      - neo4j-data:/data
+      # not :ro — the neo4j entrypoint chowns the import dir on boot
+      - ./infra/init/neo4j:/var/lib/neo4j/import
+    healthcheck:
+      test:
+        ["CMD-SHELL", "cypher-shell -u neo4j -p ${NEO4J_PASSWORD:-forge-dev-neo4j} 'RETURN 1' >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 15
+      start_period: 30s
+
+  # ── Behavioral Graph ────────────────────────────────────────────────────────
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    environment:
+      POSTGRES_USER: forge
+      POSTGRES_PASSWORD: forge-dev-ts
+      POSTGRES_DB: forge_behavior
+    ports:
+      - "5433:5432"
+    volumes:
+      - timescale-data:/var/lib/postgresql/data
+      - ./infra/init/timescale:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forge -d forge_behavior"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # ── Decision + Team Graph ─────────────────────────────────────────────────────
+  pgvector:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: forge
+      POSTGRES_PASSWORD: forge-dev-pg
+      POSTGRES_DB: forge_decision
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgvector-data:/var/lib/postgresql/data
+      - ./infra/init/pgvector:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forge -d forge_decision"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  neo4j-data:
+  timescale-data:
+  pgvector-data:

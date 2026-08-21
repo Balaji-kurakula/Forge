@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build / emit
+dist/
+build/
+*.tsbuildinfo
+
+# test / coverage
+coverage/
+.vitest/
+
+# env & secrets
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# agent / assistant local state (machine-specific, not shared)
+.claude/settings.local.json
+
+# personal, non-project material — kept locally, never published
+docs/resume/

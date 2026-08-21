@@ -1,0 +1,56 @@
+{
+  "name": "forge",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Forge — autonomous AI engineering platform. Architecture + durable-workflow skeletons.",
+  "keywords": [
+    "ai-agents",
+    "code-graph",
+    "static-analysis",
+    "tree-sitter",
+    "neo4j",
+    "durable-workflows",
+    "mcp",
+    "code-review"
+  ],
+  "license": "MIT",
+  "author": "Kurakula Balaji",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Balaji-kurakula/forge.git"
+  },
+  "homepage": "https://github.com/Balaji-kurakula/forge#readme",
+  "bugs": {
+    "url": "https://github.com/Balaji-kurakula/forge/issues"
+  },
+  "type": "module",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "check": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "demo": "tsx src/demo/run-codereview.ts",
+    "index": "tsx src/cli/index-repo.ts",
+    "graph": "tsx src/cli/query-codegraph.ts",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down -v"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "neo4j-driver": "6.0.1",
+    "tree-sitter-wasms": "0.1.13",
+    "web-tree-sitter": "0.24.7"
+  }
+}
