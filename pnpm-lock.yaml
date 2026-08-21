@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       neo4j-driver:
-        specifier: 6.0.1
-        version: 6.0.1
+        specifier: 6.2.0
+        version: 6.2.0
       tree-sitter-wasms:
         specifier: 0.1.13
         version: 0.1.13
@@ -623,14 +623,14 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  neo4j-driver-bolt-connection@6.0.1:
-    resolution: {integrity: sha512-1KyG73TO+CwnYJisdHD0sjUw9yR+P5q3JFcmVPzsHT4/whzCjuXSMpmY4jZcHH2PdY2cBUq4l/6WcDiPMxW2UA==}
+  neo4j-driver-bolt-connection@6.2.0:
+    resolution: {integrity: sha512-SEnFSBfumleDxmDAZKkjXxZ5LgL2iZSTx08sO+qXX45ZKaxZJOcg9oxwoXACXZ1RbIq3XbDfHU8I5tExanYEOA==}
 
-  neo4j-driver-core@6.0.1:
-    resolution: {integrity: sha512-5I2KxICAvcHxnWdJyDqwu8PBAQvWVTlQH2ve3VQmtVdJScPqWhpXN1PiX5IIl+cRF3pFpz9GQF53B5n6s0QQUQ==}
+  neo4j-driver-core@6.2.0:
+    resolution: {integrity: sha512-U8PSdvDECWmCgSWyhqNNVzMONXFHWPcTd5gqi12+EDxxt0aETA0m+XCXf9H7q6qQXdisc40rUJEOcVQOu6peEA==}
 
-  neo4j-driver@6.0.1:
-    resolution: {integrity: sha512-8DDF2MwEJNz7y7cp97x4u8fmVIP4CWS8qNBxdwxTG0fWtsS+2NdeC+7uXwmmuFOpHvkfXqv63uWY73bfDtOH8Q==}
+  neo4j-driver@6.2.0:
+    resolution: {integrity: sha512-9W/Tk7EyjZHtv87NFpqoIbl0mlQx8bX8phUFzAM9xmeJrRpGDvqkpdQzc11DjwzywQCdhifaZPSvokSnAp7YTg==}
     engines: {node: '>=18.0.0'}
 
   pathe@1.1.2:
@@ -1192,18 +1192,18 @@ snapshots:
 
   nanoid@3.3.12: {}
 
-  neo4j-driver-bolt-connection@6.0.1:
+  neo4j-driver-bolt-connection@6.2.0:
     dependencies:
       buffer: 6.0.3
-      neo4j-driver-core: 6.0.1
+      neo4j-driver-core: 6.2.0
       string_decoder: 1.3.0
 
-  neo4j-driver-core@6.0.1: {}
+  neo4j-driver-core@6.2.0: {}
 
-  neo4j-driver@6.0.1:
+  neo4j-driver@6.2.0:
     dependencies:
-      neo4j-driver-bolt-connection: 6.0.1
-      neo4j-driver-core: 6.0.1
+      neo4j-driver-bolt-connection: 6.2.0
+      neo4j-driver-core: 6.2.0
       rxjs: 7.8.2
 
   pathe@1.1.2: {}
