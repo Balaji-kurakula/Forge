@@ -15,8 +15,8 @@ importers:
         specifier: 0.1.13
         version: 0.1.13
       web-tree-sitter:
-        specifier: 0.24.7
-        version: 0.24.7
+        specifier: 0.26.12
+        version: 0.26.12
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.4
@@ -772,8 +772,8 @@ packages:
       jsdom:
         optional: true
 
-  web-tree-sitter@0.24.7:
-    resolution: {integrity: sha512-CdC/TqVFbXqR+C51v38hv6wOPatKEUGxa39scAeFSm98wIhZxAYonhRQPSMmfZ2w7JDI0zQDdzdmgtNk06/krQ==}
+  web-tree-sitter@0.26.12:
+    resolution: {integrity: sha512-fvqTNZQBGUgUgfP0mHw+iHf9Yf6bRQrp0A3pSf2v/hSKxkT1beCoIWoLVmlPL7O6dmySfSb/t1aJoJvrgTRStw==}
 
   why-is-node-running@2.3.0:
     resolution: {integrity: sha512-hUrmaWBdVDcxvYqnyh09zunKzROWjbZTiNy8dBEjkS7ehEDQibXJ7XvlmtbwuTclUiIyN+CyXQD4Vmko8fNm8w==}
@@ -1353,7 +1353,7 @@ snapshots:
       - supports-color
       - terser
 
-  web-tree-sitter@0.24.7: {}
+  web-tree-sitter@0.26.12: {}
 
   why-is-node-running@2.3.0:
     dependencies:
