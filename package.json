@@ -51,6 +51,6 @@
   "dependencies": {
     "neo4j-driver": "6.0.1",
     "tree-sitter-wasms": "0.1.13",
-    "web-tree-sitter": "0.24.7"
+    "web-tree-sitter": "0.27.1"
   }
 }
